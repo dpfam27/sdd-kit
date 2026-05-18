@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.dist/
+build/
+.venv/
+
+# Node
+vscode-extension/node_modules/
+vscode-extension/out/
+vscode-extension/*.vsix
