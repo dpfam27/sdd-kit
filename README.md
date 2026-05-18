@@ -5,12 +5,19 @@
 ## Install
 
 ```bash
-git clone https://github.com/dpfam27/sdd-kit.git
-cd sdd-kit
-bash setup.sh
+# 1) Install the CLI
+python3 -m pip install -U sdd-kit
+
+# 2) (Optional) Install the VS Code extension (no API key required)
+sdd install-extension
 ```
 
-That's it. `setup.sh` should set up the Python CLI + templates and (optionally) the VS Code extension.
+That's it.
+
+Notes:
+
+- The VS Code extension install requires the VS Code CLI (`code`) to be on your PATH.
+- `sdd install-extension` downloads the latest `.vsix` from GitHub Releases and runs `code --install-extension`.
 
 ### Build & package (maintainers)
 
