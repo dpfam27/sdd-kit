@@ -1,0 +1,65 @@
+{
+  "name": "sdd-kit",
+  "displayName": "SDD Kit — Spec-Driven Development",
+  "description": "AI builds from your spec. /init, /design, /build, /test and more.",
+  "version": "0.1.0",
+  "publisher": "sdd-kit",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dpfam27/sdd-kit.git"
+  },
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["AI", "Other"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "chatParticipants": [
+      {
+        "id": "sdd-kit.agent",
+        "name": "sdd",
+        "description": "Spec-Driven Development — describe what you want, AI builds it.",
+        "isSticky": true,
+        "commands": [
+          { "name": "init",       "description": "Bootstrap a new project from a one-sentence description" },
+          { "name": "design",     "description": "Redesign or add a feature" },
+          { "name": "build",      "description": "Implement a feature from the spec" },
+          { "name": "test",       "description": "Run and fix tests until passing" },
+          { "name": "refactor",   "description": "Clean up code aligned with spec" },
+          { "name": "review",     "description": "Review code against the spec" },
+          { "name": "update-doc", "description": "Sync spec docs to current code" }
+        ]
+      }
+    ],
+    "commands": [
+      {
+        "command": "sdd-kit.openPanel",
+        "title": "SDD Kit: Open Spec Panel",
+        "icon": "$(book)"
+      },
+      {
+        "command": "sdd-kit.showDocs",
+        "title": "SDD Kit: Show Spec Docs"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "sdd-kit.openPanel",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0"
+  }
+}

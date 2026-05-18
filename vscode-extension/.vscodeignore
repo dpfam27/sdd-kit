@@ -1,0 +1,22 @@
+# Exclude development-time files from the packaged VSIX
+**/*.ts
+**/*.map
+**/tsconfig*.json
+
+# node / build artifacts
+node_modules/**
+.vscode/**
+.git/**
+
+# tests & misc
+**/__tests__/**
+**/*.test.*
+**/*.spec.*
+
+# docs
+**/*.md
+
+# include compiled output + manifest + license
+!out/**
+!package.json
+!LICENSE
