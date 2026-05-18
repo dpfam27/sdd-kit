@@ -5,12 +5,30 @@
 ## Install
 
 ```bash
-git clone https://github.com/your-org/sdd-kit
+git clone https://github.com/dpfam27/sdd-kit.git
 cd sdd-kit
 bash setup.sh
 ```
 
-That's it. `setup.sh` installs the Python CLI, saves your API key, and installs the VS Code extension.
+That's it. `setup.sh` should set up the Python CLI + templates and (optionally) the VS Code extension.
+
+### Build & package (maintainers)
+
+This repo prefers `uv` for reproducible Python builds.
+
+```bash
+# Build Python artifacts
+cd ~/sdd-kit
+uv run -m pip install -U pip setuptools wheel build
+uv run -m build
+```
+
+```bash
+# Package VS Code extension (.vsix)
+cd ~/sdd-kit/vscode-extension
+npm install
+npx --yes @vscode/vsce package
+```
 
 ## Quick start
 
