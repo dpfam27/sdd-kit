@@ -6,6 +6,8 @@ Each manifest declares:
   - what outputs it produces
 """
 
+from __future__ import annotations
+
 from dataclasses import dataclass, field
 from enum import Enum
 from typing import Optional
@@ -88,26 +90,47 @@ INIT = SkillManifest(
 # Every skill ends with scaffold→build→test→report
 # ─────────────────────────────────────────────
 
-DESIGN = SkillManifest(
-    name="/design",
-    description="Redesign or add a feature. Reads constitution + architecture to stay aligned.",
+PLAN = SkillManifest(
+    name="/plan",
+    description="Plan mode — produce a checklist for the requested work. No code changes.",
     context_needs=[
         DocSection.CONSTITUTION_RULES,
         DocSection.CONSTITUTION_STACK,
         DocSection.ARCHITECTURE,
+        DocSection.FEATURE_SPEC,
+    ],
+    loop_steps=[
+        LoopStep.PLAN,
+        LoopStep.REPORT,
+    ],
+    produces=[
+        "docs/PLAN.md",
+    ],
+    max_retries=1,
+)
+
+UX = SkillManifest(
+    name="/ux",
+    description="Design a feature end-to-end: architecture, feature spec, UI/UX, components. Produces specs, not code.",
+    context_needs=[
+        DocSection.CONSTITUTION_RULES,
+        DocSection.CONSTITUTION_STACK,
+        DocSection.CONSTITUTION_USERS,
+        DocSection.ARCHITECTURE,
+        DocSection.FEATURE_SPEC,
     ],
     loop_steps=[
         LoopStep.PLAN,
         LoopStep.SCAFFOLD,
-        LoopStep.BUILD,
-        LoopStep.TEST,
         LoopStep.REPORT,
     ],
     produces=[
         "docs/ARCHITECTURE.md",       # updated
         "docs/FEATURE_SPEC_MVP.md",   # updated
+        "docs/UX_SPEC.md",
+        "docs/UI_COMPONENTS.md",
     ],
-    max_retries=3,
+    max_retries=2,
 )
 
 BUILD = SkillManifest(
@@ -216,7 +239,8 @@ UPDATE_DOC = SkillManifest(
 REGISTRY: dict[str, SkillManifest] = {
     m.name: m for m in [
         INIT,
-        DESIGN,
+        PLAN,
+        UX,
         BUILD,
         TEST,
         REFACTOR,

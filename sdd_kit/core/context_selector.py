@@ -6,6 +6,8 @@ constitution.md is always partially injected (rules + stack).
 /update-doc is the only skill that gets full docs — but via diff headers only.
 """
 
+from __future__ import annotations
+
 import re
 from pathlib import Path
 from dataclasses import dataclass

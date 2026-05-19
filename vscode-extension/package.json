@@ -1,8 +1,8 @@
 {
   "name": "sdd-kit",
   "displayName": "SDD Kit — Spec-Driven Development",
-  "description": "AI builds from your spec. /init, /design, /build, /test and more.",
-  "version": "0.1.0",
+  "description": "AI builds from your spec. /init, /plan, /ux, /build, /test and more.",
+  "version": "0.2.0",
   "publisher": "sdd-kit",
   "license": "Apache-2.0",
   "repository": {
@@ -22,7 +22,8 @@
         "isSticky": true,
         "commands": [
           { "name": "init",       "description": "Bootstrap a new project from a one-sentence description" },
-          { "name": "design",     "description": "Redesign or add a feature" },
+          { "name": "plan",       "description": "Produce a checklist plan — no code changes" },
+          { "name": "ux",         "description": "Design a feature — architecture, feature spec, UI/UX, components" },
           { "name": "build",      "description": "Implement a feature from the spec" },
           { "name": "test",       "description": "Run and fix tests until passing" },
           { "name": "refactor",   "description": "Clean up code aligned with spec" },

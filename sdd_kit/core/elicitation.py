@@ -4,12 +4,12 @@ Asks structured questions, validates answers, returns filled context
 ready for the scaffold step.
 """
 
+from __future__ import annotations
+
 from dataclasses import dataclass, field
 from pathlib import Path
 from datetime import date
 import json
-
-import anthropic
 from rich.console import Console
 from rich.prompt import Prompt, Confirm
 from rich.panel import Panel

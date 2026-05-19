@@ -11,6 +11,8 @@ Loop steps per LoopStep enum:
   REPORT   → checklist of what was done + suggested next tasks
 """
 
+from __future__ import annotations
+
 import subprocess
 from pathlib import Path
 from dataclasses import dataclass, field
